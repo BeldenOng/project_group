@@ -3,30 +3,37 @@ import re, csv
 filepath_COH = Path.cwd()/"csv.reports"/"cash-on-hand-usd.csv"
 
 
-def cashonhand():
-    with filepath_COH.open(mode="r", encoding="UTF-8", newline = '') as COH_file:
-        global x
+
+with filepath_COH.open(mode="r", encoding="UTF-8", newline = '') as COH_file:
+        
         reader = csv.reader(COH_file, delimiter = ',')
         next(reader)
         list = []
-         
-    
         for line in reader:
-            list.append(line)
+            list.append(line[1])
         
         print(list)
-        
-        if list[5][1] > list[4][1]: 
-                return("over")
-        else: 
-                return("under")
 
+def cashonhand():
+     
+     for i in range (len(list)):
+
+        difference = int(list[i+1]) - int(list[i])
+        if difference > 0 :
+            
+            return("higher")
+        elif difference < 0:
+            
+            return("lower")
+             
 print(cashonhand())
+
+       
     
        
         
         #if line[1][second_day] > line[1][first_day]: 
-            #print("hello")
+            #print("hello") 
         #else:
-            #print("bye")
+            #print("bye") 
         
