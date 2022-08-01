@@ -14,17 +14,16 @@ with filepath_COH.open(mode="r", encoding="UTF-8", newline = '') as COH_file:
         
         print(list)
 
-def cashonhand():
-     
-    for i in range(0,len(list)):
 
-        difference = int(list[i+1]) - int(list[i])
-        if difference > 0 :
-            return("higher")
-        elif difference < 0:
-            return("lower")
+for i in range(len(list)-1):
 
-print(cashonhand())
+    difference = int(list[i+1]) - int(list[i])
+    if difference > 0 :
+        print("higher")
+    elif difference < 0:
+        print("lower")
+
+
 
        
     
