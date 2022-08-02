@@ -1,25 +1,27 @@
 
 import requests
 
-def api():
-    api_key = "JU5Q2GN41LOPWZ76"
 
-    url= f'https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=USD&to_currency=SGD&apikey=({api_key}'
+api_key = "JU5Q2GN41LOPWZ76"
 
-    response = requests.get(url)
+url= f'https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=USD&to_currency=SGD&apikey=({api_key}'
 
-    data = response.json()
+response = requests.get(url)
 
-    print(data.keys())
+data = response.json()
 
-
-
-    pmdata = (data["Realtime Currency Exchange Rate"])
+print(data.keys())
 
 
 
-    CONVERSION = "[REAL TIME CURRENCY CONVERSION RATE]"
+pmdata = (data["Realtime Currency Exchange Rate"])
 
-    exchange_rate = float(pmdata['5. Exchange Rate'])
 
-    final_exchange_rate = (f"{CONVERSION} USD1 = SGD{round((exchange_rate),6)}")
+
+CONVERSION = "[REAL TIME CURRENCY CONVERSION RATE]"
+
+exchange_rate = float(pmdata['5. Exchange Rate'])
+
+final_exchange_rate = (f"{CONVERSION} USD1 = SGD{round((exchange_rate),6)}")
+
+print(final_exchange_rate)
