@@ -28,5 +28,5 @@ def cashonhand():
         difference = int(amount[i+1]) - int(amount[i])
         #creating condition when there is a cash deficit
         if difference < 0 :
-            print(f"[CASH DEFICIT] Day: {round(float(day[i+1]), 2)}, AMOUNT: SGD{float(amount[i+1]) * api.exchange_rate} ]")
+            print(f"[CASH DEFICIT] Day: {round(float(day[i+1]), 2)}, AMOUNT: SGD{float(amount[i+1])}]")
 cashonhand()
