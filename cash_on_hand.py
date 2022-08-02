@@ -12,8 +12,6 @@ with filepath_COH.open(mode="r", encoding="UTF-8", newline = '') as COH_file:
         day = []
         for line in reader:
             amount.append(line[1])
-        
-        for line in reader:
             day.append(line[0])
             
         print(amount)
@@ -25,7 +23,7 @@ def Cashonhand():
 
         difference = int(amount[i+1]) - int(amount[i])
         if difference < 0 :
-            print(f"[CASH DEFICIT] Day:, AMOUNT: SGD{amount[i+1]}]")
+            print(f"[CASH DEFICIT] Day:{day[i+1]}, AMOUNT: SGD{amount[i+1]}]")
 Cashonhand()
     
 
