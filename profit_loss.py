@@ -1,5 +1,8 @@
+#importh Path , re , csv
 from pathlib import Path
 import re , csv 
+
+#create variable 
 filepath_PNL = Path.cwd()/"csv.reports"/"profit-and-loss-usd.csv"
 
 
