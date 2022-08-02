@@ -15,7 +15,7 @@ with filepath_COH.open(mode="r", encoding="UTF-8", newline = '') as COH_file:
         #create empty list
         amount = []
         day = []
-        #create for loop 
+        #create for loop for iteration
         for line in reader:
             #append cash on hand numbers to empty list
             amount.append(line[1])
