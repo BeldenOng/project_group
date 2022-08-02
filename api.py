@@ -26,6 +26,7 @@ CONVERSION = "[REAL TIME CURRENCY CONVERSION RATE]"
 
 exchange_rate = float(pmdata['5. Exchange Rate'])
 
+
 final_exchange_rate = (f"{CONVERSION} USD1 = SGD{round((exchange_rate),6)}")
 
 print(final_exchange_rate)
