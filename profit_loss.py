@@ -1,6 +1,6 @@
 #importh Path , re , csv
 from pathlib import Path
-import re , csv 
+import re , csv , api
 
 #create variable filepath_PNL
 filepath_PNL = Path.cwd()/"csv.reports"/"profit-and-loss-usd.csv"
@@ -32,7 +32,7 @@ def profitandloss():
         difference = int(amount[i+1]) - int(amount[i])
         #create condition of difference is less than 0
         if difference < 0 :
-            print(f"[PROFIT DEFICIT] Day: {round(float(day[i+1]), 2)}, AMOUNT: SGD{amount[i+1]}]")
+            print(f"[PROFIT DEFICIT] Day: {round(float(day[i+1]), 2)}, AMOUNT: SGD{float(amount[i+1]) * api.exchange_rate}]")
 
 #call back the function           
 profitandloss()
