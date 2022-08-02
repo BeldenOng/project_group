@@ -23,7 +23,7 @@ def Cashonhand():
 
         difference = int(amount[i+1]) - int(amount[i])
         if difference < 0 :
-            print(f"[CASH DEFICIT] Day:{day[i+1]}, AMOUNT: SGD{amount[i+1]}]")
+            print(f"[CASH DEFICIT] Day: {(day[i+1])}, AMOUNT: SGD{amount[i+1]}]")
 Cashonhand()
     
 
