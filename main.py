@@ -1,7 +1,8 @@
-import api , cashonhand , overheads , profit_loss
+import overheads
 
 def main():
-    forex = api.api_key
-    cashonhand.cashonhand(forex)
-    profit_loss.profitandloss(forex)
+    forex = float(api.exchange_rate)
+    
+    
+    overheads.overheads()
 main()
