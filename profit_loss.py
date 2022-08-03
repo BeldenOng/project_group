@@ -3,23 +3,23 @@ from pathlib import Path
 import re , csv
 
 
-def profitandloss(forex):
     #create variable filepath_PNL
-    filepath_PNL = Path.cwd()/"csv.reports"/"profit-and-loss-usd.csv"
+filepath_PNL = Path.cwd()/"csv.reports"/"profit-and-loss-usd.csv"
 
 
 #open csv using .open()
-    with filepath_PNL.open(mode="r", encoding="UTF-8", newline = '') as PNL_file:
+with filepath_PNL.open(mode="r", encoding="UTF-8", newline = '') as PNL_file:
         
-            #create varibale reader
+        #create varibale reader
         reader = csv.reader(PNL_file)
-            #use next() to skip over the headers
+        #use next() to skip over the headers
         next(reader)
-            #create variable amount empty list 
+        #create variable amount empty list 
         amount = []
-            #create variable day empty list
+        #create variable day empty list
         day = []
-            #create for loop to iterate over the days
+        #create for loop to iterate over the days
+
         for line in reader:
                 #append the amounts to empty list
             amount.append(line[4])
@@ -27,13 +27,17 @@ def profitandloss(forex):
             day.append(line[0])
             
 #define profitandloss()     
-        
 
-        #create for loop to iterate over the all the days
+def profitandloss(forex):            
+#define cashonhand()
+        PNL = []
+    #create for loop to iterate over all the days 
         for i in range(len(amount)-1):
-            #calculate the difference and store as variable 'difference'
+        #calculate the difference in Cash on hand amounts
             difference = int(amount[i+1]) - int(amount[i])
-        #create condition of difference is less than 0
+        #creating condition when there is a cash deficit
             if difference < 0 :
-                print(f"[PROFIT DEFICIT] Day: {round(float(day[i+1]), 2)}, AMOUNT: SGD{float(amount[i+1])* forex}]")
-
+                PNL.append(amount[i+1])
+                return(f"[PROFIT DEFICIT] Day: {round(float(day[i+1]), 2)}, AMOUNT: SGD{round(float(amount[i+1]) * forex,1)}]")
+        if (len(PNL))== 0:
+           return("[NET PROFIT SURPLUS] NET PROFIT ON EACH DAY IS HIGHER THAN PREVIOUS DAY")
