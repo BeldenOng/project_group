@@ -19,14 +19,17 @@ with filepath_COH.open(mode="r", encoding="UTF-8", newline = '') as COH_file:
             amount.append(line[1])
             #append the respective days to empty list
             day.append(line[0])
-            
+
+def cashonhand(forex):
 #define cashonhand()
-def cashonhand():
+        CD = []
     #create for loop to iterate over all the days 
-    for i in range(len(amount)-1):
+        for i in range(len(amount)-1):
         #calculate the difference in Cash on hand amounts
-        difference = int(amount[i+1]) - int(amount[i])
+            difference = int(amount[i+1]) - int(amount[i])
         #creating condition when there is a cash deficit
-        if difference < 0 :
-            print(f"[CASH DEFICIT] Day: {round(float(day[i+1]), 2)}, AMOUNT: SGD{float(amount[i+1])}]")
-cashonhand()
+            if difference < 0 :
+                CD.append(amount[i+1])
+                print(f"[CASH DEFICIT] Day: {round(float(day[i+1]), 2)}, AMOUNT: SGD{float(amount[i+1])*forex }]")
+        if (len(CD))== 0:
+           print("[CASH SURPLUS] CASH ON EACH DAY IS HIGHER THAN THE PREVIOUS DAY" )

@@ -1,4 +1,3 @@
-#import Path , re , csv
 from pathlib import Path
 import re , csv
 from typing import overload 
@@ -21,18 +20,14 @@ with filepath_overheads.open(mode="r", encoding="UTF-8", newline = '') as overH_
         #append values to empty list
         expense.append(line[0])
         overhead.append(line[1])
-    print(expense)
-    print(overhead)
 
 
 maximum = max(overhead)
-print(maximum)
 
 def overheads():
     for i in range(len(overhead)-1):
         if overhead[i] == maximum:
             print(f"[HIGHEST OVERHEADS] {expense[i]} : {maximum}")
-overheads()
 
 
 
@@ -45,7 +40,6 @@ overheads()
 
         
         
-    #print(f"[HIGHEST OVERHEADS] {sorted(list, key = lambda x: x[1] :  reverse=True)[0]}")     
-
+   
 
    
