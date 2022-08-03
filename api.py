@@ -6,7 +6,10 @@ def api_function():
     api_key = "JU5Q2GN41LOPWZ76"
 
     #create url to variable url
+
     url= f'https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=USD&to_currency=SGD&apikey=({api_key}'
+
+    url= f'https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=USD&to_currency=SGD&apikey=(%7Bapi_key%7D'
 
     #get url
     response = requests.get(url)

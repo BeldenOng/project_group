@@ -9,7 +9,7 @@ filepath_PNL = Path.cwd()/"csv.reports"/"profit-and-loss-usd.csv"
 
 #open csv using .open()
 with filepath_PNL.open(mode="r", encoding="UTF-8", newline = '') as PNL_file:
-        
+
         #create varibale reader
         reader = csv.reader(PNL_file)
         #use next() to skip over the headers
