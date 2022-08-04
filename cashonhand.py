@@ -21,12 +21,11 @@ import re , csv
             #day.append(line[0])
 
 def cashonhand(forex):
-
-    filepath_COH = Path.cwd()/"csv.reports"/"cash-on-hand-usd.csv"
+    cwd = Path.cwd()
+    cwd_csv = cwd/"csv.reports"/"cash-on-hand-usd.csv"
     day_amount = []
-    with filepath_COH.open(mode="r", encoding="UTF-8", newline = '') as COH_file:
-
-        csvreader = csv.reader(COH_file)
+    with cwd_csv.open(mode = 'r', encoding = 'UTF-8', newline = '') as file:
+        csvreader = csv.reader(file)
         next(csvreader)
         for data in csvreader:
             day_amount.append(data)

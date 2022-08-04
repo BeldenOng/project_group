@@ -39,16 +39,21 @@ def profitandloss(forex):
 #define profitandloss()
 
 def profitandloss(forex):
-#define cashonhand()
-        PNL = []
-    #create for loop to iterate over all the days 
-        for i in range(len(amount)-1):
-        #calculate the difference in Cash on hand amounts
-            difference = int(amount[i+1]) - int(amount[i])
-        #creating condition when there is a cash deficit
-            if difference < 0 :
-                PNL.append(amount[i+1])
-
-                return(f"[PROFIT DEFICIT] Day: {round(float(day[i+1]), 2)}, AMOUNT: SGD{round(float(amount[i+1]) * forex,1)}]")
-        if (len(PNL))== 0:
-           return("[NET PROFIT SURPLUS] NET PROFIT ON EACH DAY IS HIGHER THAN PREVIOUS DAY")
+    cwd = Path.cwd()
+    cwd_csv = cwd/"csv.reports"/"profit-and-loss-usd.csv"
+    day_amount = []
+    with cwd_csv.open(mode = 'r', encoding = 'UTF-8', newline = '') as file:
+        csvreader = csv.reader(file)
+        next(csvreader)
+        for data in csvreader:
+            day_amount.append(data)
+    profit_deficit = []
+    for i in range(len(day_amount)):
+        if i == 0:
+            continue
+        if day_amount[i][1] < day_amount[i-1][1]:
+            deficit_amount = []
+            deficit_amount.append("{:.2f}".format(float(day_amount[i][0])))
+            deficit_amount.append("{:.2f}".format(forex*(int(day_amount[i-1][1]) - int(day_amount[i][1]))))
+            profit_deficit.append(deficit_amount)
+    return profit_deficit
