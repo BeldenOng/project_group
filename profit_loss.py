@@ -19,7 +19,6 @@ with filepath_PNL.open(mode="r", encoding="UTF-8", newline = '') as PNL_file:
         #create variable day empty list
         day = []
         #create for loop to iterate over the days
-<<<<<<< HEAD
 
         for line in reader:
                 #append the amounts to empty list
@@ -30,7 +29,6 @@ with filepath_PNL.open(mode="r", encoding="UTF-8", newline = '') as PNL_file:
 #define profitandloss()     
 
 def profitandloss(forex):            
-=======
 
         for line in reader:
                 #append the amounts to empty list
@@ -41,7 +39,6 @@ def profitandloss(forex):
 #define profitandloss()
 
 def profitandloss(forex):
->>>>>>> 4765c547e8ed69f0e236895640729702fdb98339
 #define cashonhand()
         PNL = []
     #create for loop to iterate over all the days 
@@ -51,15 +48,7 @@ def profitandloss(forex):
         #creating condition when there is a cash deficit
             if difference < 0 :
                 PNL.append(amount[i+1])
-<<<<<<< HEAD
+
                 return(f"[PROFIT DEFICIT] Day: {round(float(day[i+1]), 2)}, AMOUNT: SGD{round(float(amount[i+1]) * forex,1)}]")
         if (len(PNL))== 0:
            return("[NET PROFIT SURPLUS] NET PROFIT ON EACH DAY IS HIGHER THAN PREVIOUS DAY")
-<<<<<<< HEAD
-=======
-=======
-                print(f"[PROFIT DEFICIT] Day: {round(float(day[i+1]), 2)}, AMOUNT: SGD{float(amount[i+1]) * forex}]")
-        if (len(PNL))== 0:
-           print("[NET PROFIT SURPLUS] NET PROFIT ON EACH DAY IS HIGHER THAN PREVIOUS DAY")
->>>>>>> 4765c547e8ed69f0e236895640729702fdb98339
->>>>>>> b2e10492d0fb81b1ce24146ad81f5d767ca861d1
