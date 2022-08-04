@@ -19,7 +19,7 @@ with filepath_text.open(mode="w", encoding="UTF-8", newline = "\n") as summary_r
         summary_report.write(f"{apisummary}")
 
     #Identifying highest overheads
-        overheadssummary=str(overheads.overheads())
+        overheadssummary=str(overheads.overheads(forex))
         summary_report.write(f"\n{overheadssummary}\n")
 
     #Identify cash deficit/surplus

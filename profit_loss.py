@@ -18,8 +18,8 @@ def profitandloss(forex):
         for data in csvreader:
             #append data to empty set values
             values.append(data)
-    #create empty set profitdeficit
-    profitdeficit = []
+    #create empty set PD
+    PD = []
     #create for loop to iterate over the indexes
     for i in range(len(values)):
         #create condition if it is the first index
@@ -30,9 +30,9 @@ def profitandloss(forex):
             #create empty list deficitamount 
             deficitamount = []
             #append day and amount to deficitamount
-            deficitamount.append("{:.2f}".format(float(values[i][0])))
-            deficitamount.append("{:.2f}".format(forex*(int(values[i-1][4]) - int(values[i][4]))))
-            #append day and deficit amount to empty list profitdeficit
-            profitdeficit.append(deficitamount)
-    #return profitdeficit to the function 
-    return profitdeficit
+            deficitamount.append("{:.1f}".format(float(values[i][0])))
+            deficitamount.append("{:.1f}".format(forex*(int(values[i-1][4]) - int(values[i][4]))))
+            #append day and deficit amount to empty list PD
+            PD.append(deficitamount)
+    #return profitdeficit
+    return PD

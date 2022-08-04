@@ -19,7 +19,7 @@ def cashonhand(forex):
             #append data into empty list
             dayandamount.append(data)
     #create empty list
-    cashdeficit = []
+    CD = []
     #create for loop to iterate over all the indexes 
     for i in range(len(dayandamount)):
         #create condition if it is the first index
@@ -30,12 +30,12 @@ def cashonhand(forex):
             #create empty list 
             deficit = []
             #append day and amount to empty list defit
-            deficit.append("{:.2f}".format(float(dayandamount[i][0])))
-            deficit.append("{:.2f}".format(forex*(int(dayandamount[i-1][1]) - int(dayandamount[i][1]))))
-            #append values to empty list cashdeficit
-            cashdeficit.append(deficit)
-    #return cashdeficit values to function
-    return cashdeficit
+            deficit.append("{:.1f}".format(float(dayandamount[i][0])))
+            deficit.append("{:.1f}".format(forex*((int(dayandamount[i-1][1]) - int(dayandamount[i][1])))))
+            #append values to empty list CD
+            CD.append(deficit)
+    #return CD values to function
+    return CD
 
 
 

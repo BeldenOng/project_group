@@ -25,11 +25,11 @@ with filepath_overheads.open(mode="r", encoding="UTF-8", newline = '') as overH_
 maximum = max(overhead)
 
 #defining function
-def overheads():
+def overheads(forex):
     #create for loop to iterate over the datas
     for i in range(len(overhead)-1):
         #create condition if the value is maximum
         if overhead[i] == maximum:
-            return(f"[HIGHEST OVERHEADS] {expense[i]} : {maximum}")
-
+            return(f"[HIGHEST OVERHEADS] {expense[i].upper()}: SGD{round(forex*(float(maximum)),1)}")
+            
    
