@@ -2,11 +2,11 @@
 import requests
 
 def api_function():
+    
     #create variable api_key
     api_key = "JU5Q2GN41LOPWZ76"
 
     #create url to variable url
-
     url= f'https://www.alphavantage.co/query?function=CURRENCY_EXCHANGE_RATE&from_currency=USD&to_currency=SGD&apikey=({api_key}'
 
 
@@ -18,8 +18,6 @@ def api_function():
 
     # Use '.keys()' attribute to retrieve the keys of a dict
     print(data.keys())
-
-
 
     pmdata = (data["Realtime Currency Exchange Rate"])
 

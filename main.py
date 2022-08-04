@@ -1,5 +1,4 @@
 from pathlib import Path
-
 import api, cashonhand , overheads, profit_loss
 filepath_text = Path.cwd()/"summary_report.txt"
 filepath_text.touch()
@@ -36,8 +35,5 @@ with filepath_text.open(mode="w", encoding="UTF-8", newline = "\n") as summary_r
 
     
 
-import api, cashonhand, overheads, profit_loss
-filepath_text = Path.cwd()/"summary_report.txt"
-filepath_text.touch()
 
 
