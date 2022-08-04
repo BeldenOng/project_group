@@ -1,6 +1,6 @@
 from pathlib import Path
 import csv
- 
+
 #create variable filepath_overheads
 filepath_overheads= Path.cwd()/"csv.reports"/"overheads-day-45.csv"
 
@@ -21,11 +21,14 @@ with filepath_overheads.open(mode="r", encoding="UTF-8", newline = '') as overH_
         expense.append(line[0])
         overhead.append(line[1])
 
-
+#location the maximum overhead 
 maximum = max(overhead)
 
+#defining function
 def overheads():
+    #create for loop to iterate over the datas
     for i in range(len(overhead)-1):
+        #create condition if the value is maximum
         if overhead[i] == maximum:
             return(f"[HIGHEST OVERHEADS] {expense[i]} : {maximum}")
 

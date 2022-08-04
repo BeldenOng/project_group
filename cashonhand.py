@@ -1,26 +1,41 @@
-# import Path , re , csv
+# import Path and csv
 from pathlib import Path
 import csv
 
+#define cashonhand()
 def cashonhand(forex):
-    cwd = Path.cwd()
-    cwd_csv = cwd/"csv.reports"/"cash-on-hand-usd.csv"
-    day_amount = []
-    with cwd_csv.open(mode = 'r', encoding = 'UTF-8', newline = '') as file:
+    #locate file path
+    filepath = Path.cwd()/"csv.reports"/"cash-on-hand-usd.csv"
+    #create empty set 
+    dayandamount = []
+    #open csv file with open.()
+    with filepath.open(mode = 'r', encoding = 'UTF-8', newline = '') as file:
+        #create variable for reading of csv file
         csvreader = csv.reader(file)
+        #use next() to skip over the header
         next(csvreader)
+        #create for loop to iterate over the data
         for data in csvreader:
-            day_amount.append(data)
-    cash_deficit = []
-    for i in range(len(day_amount)):
+            #append data into empty list
+            dayandamount.append(data)
+    #create empty list
+    cashdeficit = []
+    #create for loop to iterate over all the indexes 
+    for i in range(len(dayandamount)):
+        #create condition if it is the first index
         if i == 0:
             continue
-        if day_amount[i][1] < day_amount[i-1][1]:
-            deficit_amount = []
-            deficit_amount.append("{:.2f}".format(float(day_amount[i][0])))
-            deficit_amount.append("{:.2f}".format(forex*(int(day_amount[i-1][1]) - int(day_amount[i][1]))))
-            cash_deficit.append(deficit_amount)
-    return cash_deficit
+        #create condition if the amount is less than the previous day 
+        if dayandamount[i][1] < dayandamount[i-1][1]:
+            #create empty list 
+            deficit = []
+            #append day and amount to empty list defit
+            deficit.append("{:.2f}".format(float(dayandamount[i][0])))
+            deficit.append("{:.2f}".format(forex*(int(dayandamount[i-1][1]) - int(dayandamount[i][1]))))
+            #append values to empty list cashdeficit
+            cashdeficit.append(deficit)
+    #return cashdeficit values to function
+    return cashdeficit
 
 
 

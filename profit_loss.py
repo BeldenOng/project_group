@@ -2,22 +2,37 @@
 from pathlib import Path
 import csv
 
+#define profitandloss function
 def profitandloss(forex):
-    cwd = Path.cwd()
-    cwd_csv = cwd/"csv.reports"/"profit-and-loss-usd.csv"
-    day_amount = []
-    with cwd_csv.open(mode = 'r', encoding = 'UTF-8', newline = '') as file:
+    #locate profit and loss csv
+    filepath = Path.cwd()/"csv.reports"/"profit-and-loss-usd.csv"
+    #create empty set
+    values = []
+    #open csv file with .open()
+    with filepath.open(mode = 'r', encoding = 'UTF-8', newline = '') as file:
+        #create variable for reading of csv file
         csvreader = csv.reader(file)
+        #use next() to skip over the header
         next(csvreader)
+        #create for loop to iterate over the data
         for data in csvreader:
-            day_amount.append(data)
-    profit_deficit = []
-    for i in range(len(day_amount)):
+            #append data to empty set values
+            values.append(data)
+    #create empty set profitdeficit
+    profitdeficit = []
+    #create for loop to iterate over the indexes
+    for i in range(len(values)):
+        #create condition if it is the first index
         if i == 0:
             continue
-        if day_amount[i][4] < day_amount[i-1][4]:
-            deficit_amount = []
-            deficit_amount.append("{:.2f}".format(float(day_amount[i][0])))
-            deficit_amount.append("{:.2f}".format(forex*(int(day_amount[i-1][4]) - int(day_amount[i][4]))))
-            profit_deficit.append(deficit_amount)
-    return profit_deficit
+        #create condition if the amount is less than the previous day
+        if values[i][4] < values[i-1][4]:
+            #create empty list deficitamount 
+            deficitamount = []
+            #append day and amount to deficitamount
+            deficitamount.append("{:.2f}".format(float(values[i][0])))
+            deficitamount.append("{:.2f}".format(forex*(int(values[i-1][4]) - int(values[i][4]))))
+            #append day and deficit amount to empty list profitdeficit
+            profitdeficit.append(deficitamount)
+    #return profitdeficit to the function 
+    return profitdeficit
