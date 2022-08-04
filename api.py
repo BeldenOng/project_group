@@ -26,6 +26,7 @@ def api_function():
     exchange_rate = float(pmdata['5. Exchange Rate'])
 
     return exchange_rate
+
 def api_statement(forex):
     final_exchange_rate_statement = (f"[REAL TIME CURRENCY CONVERSION RATE] USD1 = SGD{(forex)}")
     return(final_exchange_rate_statement)
